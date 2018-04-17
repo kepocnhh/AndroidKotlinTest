@@ -1,0 +1,25 @@
+apply from: 'android.gradle'
+
+buildscript {
+    ext.kotlin_version = '1.2.31'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+    ext {
+        applicationId = 'android.kotlin.test'
+        versionCode = 1804082051
+        versionName = "0.00.02"
+    }
+}

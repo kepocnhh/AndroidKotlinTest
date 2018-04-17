@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    def global = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion global["androidCompileSdkVersion"]
+    buildToolsVersion global["androidBuildToolsVersion"]
+    defaultConfig {
+        minSdkVersion global["androidMinSdkVersion"]
+        targetSdkVersion global["androidTargetSdkVersion"]
+        applicationId global["applicationId"]
+        versionCode global["versionCode"]
+        versionName global["versionName"]
+        archivesBaseName = "$applicationId-$versionCode"
+    }
+    buildTypes {
+        release {
+        }
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+        }
+    }
+}
+
+dependencies {
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
